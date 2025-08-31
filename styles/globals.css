@@ -1,9 +1,8 @@
 /* globals.css */
 
-/* Tailwind base setup */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind base setup for v4 */
+@import "tailwindcss/preflight"; /* replaces @tailwind base */
+@tailwind utilities; /* utilities remain the same */
 
 /* Custom global styles */
 html,
@@ -14,6 +13,10 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #f9fafb; /* Light background */
   color: #111827; /* Dark text */
+  background-image: url('/images/background.jpg'); /* Add your image in public/images/ */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -22,9 +25,13 @@ body {
 html.dark {
   background-color: #111827;
   color: #f9fafb;
+  background-image: url('/images/background-dark.jpg'); /* optional dark mode background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Smooth transitions for theme toggles, hover effects */
+/* Smooth transitions for theme toggles & hover effects */
 * {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -57,7 +64,7 @@ html.dark {
   box-shadow: 0 0 0 2px #3b82f6;
 }
 
-/* Container utility */
+/* Container utility using Tailwind's apply */
 .container {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
